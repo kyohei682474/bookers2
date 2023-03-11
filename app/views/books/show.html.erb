@@ -34,8 +34,9 @@
        　<%=link_to @book.user.name, user_path(@book.user.id) %></td>
        　<td><%=link_to @book.title, book_path(@book.id) %></td>
          <td><%= @book.body %></td>
-         <td><%=link_to 'Edit', edit_book(@book.id.edit) %></td>
-         <td><%=link_to 'Destroy', @book.id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%=link_to 'Edit', edit_book_path(@book.id) %></td>
+         <td><%=link_to 'Destroy', book_path(@book.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       　 </tr>
       
       　</tbody>
