@@ -11,8 +11,13 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user.id)  
+    if user.update(user_params)
+      flash[:success] = "You have updated user successfully."
+      redirect_to user_path(user.id)
+    else
+      flash.now[:danger] = "更新に失敗しました。"
+      render 'users/edit'
+    end
     
   end
   def index

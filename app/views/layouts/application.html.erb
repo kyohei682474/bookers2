@@ -28,7 +28,7 @@
             <% if user_signed_in? %>
             
             <li class="nav-item">
-             <%= link_to 'Home', books_path, class: 'nav-link text-dark'%>
+             <%= link_to 'Home', user_path(@user.id), class: 'nav-link text-dark'%>
             </li>
             <li class="nav-item">
              <%= link_to 'Users', users_path, class: 'nav-link text-dark'%>
@@ -52,12 +52,15 @@
         </div>
       </nav>
     </header>
-  
+    <%= render 'shared/flash_message' %>
     <%= yield %>
   </body>
    <div class="container">
      <div class="row">
+      <body>
        
+  
+      </body>
      </div>
      
    </div>
