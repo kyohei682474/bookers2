@@ -40,7 +40,7 @@
                <button type="button" class="btn btn-success">Edit</button>
               <% end %></td>
           <td><% if @book.user == current_user %>
-            　　<%= link_to book_path(@book.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+               <%= link_to book_path(@book.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <button type="button" class="btn btn-danger">Destroy</button>
                <% end %>
               <% end %></td>

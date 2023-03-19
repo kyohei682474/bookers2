@@ -2,38 +2,59 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   
      # 投稿データの保存
-  def create
+   def create
+       @user = current_user
+       @books = Book.all
+       @book = Book.new(book_params)
+       @book.user_id = current_user.id
+    if 
+        @book.save
+       flash[:success] = "You have created book successfully."
+       redirect_to book_path(@book.id)
+    else
+       render "index"
+    end
+   end
     
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path(@book.id)
-    
-  end
+   
+  
   
   def index
-    @book = Book.new
-    @books = Book.all
-    @user = current_user
-    @users = User.all
-    
+       @book = Book.new
+       @books = Book.all
+       @user = current_user
+       @users = User.all
+      
     
     
   end
   
   def edit
-    @book = Book.find(params[:id])
+        @book = Book.find(params[:id])
+    if  
+        @user = current_user
+        render:edit
+    else
+        redirect_to books_path
+    end
+    
   end
   def show
-    @book_new= Book.new
-    @book = Book.find(params[:id])
-    @user = current_user
+       @book_new= Book.new
+       @book = Book.find(params[:id])
+       @user = current_user
   end
   
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book.id)  
+      @user =  current_user
+      @book = Book.find(params[:id])
+   if 
+      @book.update(book_params)
+      flash[:success] = "You have updated book successfully."
+      redirect_to book_path(@book.id)  
+   else
+     render:edit
+   end
   end
   def destroy
     book = Book.find(params[:id])  # データ（レコード）を1件取得
