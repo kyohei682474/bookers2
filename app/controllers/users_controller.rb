@@ -4,17 +4,24 @@ class UsersController < ApplicationController
       @books = @user.books.all
   end
   
+  
+  
   def edit
-    @user = User.find(params[:id])
-  if @book.user = current_user
-     render "edit"
-  else
-    redirect_to books_path
+     @user = User.find(params[:id])
+  unless @user.id == current_user.id
+    redirect_to user_path(current_user.id)
   end
+    
+  
   end
   
 
   def update
+       
+         user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to books_path
+    end
        @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "You have updated user successfully."

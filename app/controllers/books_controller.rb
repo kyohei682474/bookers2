@@ -30,15 +30,16 @@ class BooksController < ApplicationController
   end
   
   def edit
-        @book = Book.find(params[:id])
-    if  
-        @user = current_user
-        render:edit
-    else
-        redirect_to books_path
+       book = Book.find(params[:id])
+    
+    unless book.user_id == current_user.id
+     redirect_to books_path
     end
+     @book = Book.find(params[:id])
+
     
   end
+  
   def show
        @book_new= Book.new
        @book = Book.find(params[:id])
@@ -56,6 +57,7 @@ class BooksController < ApplicationController
      render:edit
    end
   end
+  
   def destroy
     book = Book.find(params[:id])  # データ（レコード）を1件取得
     book.destroy  # データ（レコード）を削除
