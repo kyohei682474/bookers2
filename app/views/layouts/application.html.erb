@@ -12,10 +12,10 @@
 
   <body>
     
-     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+     <header class="p-3 mb-2 bg-secondary text-white">
+      <nav class="navbar navbar-expand-lg navbar-light" >
         <div class="container">
-          <a class="navbar-brand p-3" href="/">Bookers</a>
+          <a class="text-white" href="/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,25 +27,30 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             
+          
             <li class="nav-item">
              <%= link_to  user_path(current_user), class:'nav-link text-dark' do %>
-             <i class="fas fa-home fa-lg"></i>Home
+           <i class="fas fa-home fa-lg" style="color: #edeff2;"></i>
+           <i class="text-white ">Home</i>
+            
              <% end %>
             </li>
             <li class="nav-item">
              <%= link_to  users_path, class:'nav-link text-dark' do %>
-              <i class="fas fa-users fa-lg"></i>Users
+            <i class="fas fa-users fa-lg" style="color: #f2f4f8;"></i>
+             <i class="text-white ">Users</i>
              <% end %>
             </li>
             <li class="nav-item">
              <%= link_to books_path, class:'nav-link text-dark' do %>
-              <i class="fas fa-book-open fa-lg"></i>Books
+              <i class="fas fa-book-open fa-lg" style="color: #f5f5f5;"></i>
+              <i class="text-white ">Books</i>
              <% end %>
             </li>
             <li class="nav-item">
             
               <%= link_to  destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                 <i class="fas fa-sign-out-alt fa-lg"></i>Log out
+                 <i class="text-white ">Log out</i>
               <% end %>
               
             </li>                       
@@ -54,22 +59,26 @@
             
             <li class="nav-item">
              <%= link_to  root_path, class:'nav-link text-dark' do %>
-             <i class="fas fa-home fa-lg"></i>Home
+             <i class="fas fa-home fa-lg" style="color: #edeff2;"></i>
+             <i class="text-white ">Home</i>
              <% end %>
             </li>
             <li class="nav-item">
              <%= link_to  about_path, class:'nav-link text-dark' do %>
-             <i class="fas fa-link fa-lg"></i>About
+             <i class="fas fa-link fa-lg" style="color: #efeff1;"></i>
+             <i class="text-white ">About</i>
              <% end %>
             </li>
             <li class="nav-item">
               <%= link_to new_user_registration_path, class:'nav-link text-dark' do %>
-               <i class="fas fa-user-plus fa-lg"></i>Sign up
+               <i class="fas fa-user-plus fa-lg" style="color: #f2f2f3;"></i>
+               <i class="text-white ">Sing up</i>
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to new_user_session_path, class:'nav-link text-dark' do %>
-               <i class="fas fa-sign-in-alt fa-lg"></i>Log in
+              <i class="fas fa-sign-in-alt fa-lg" style="color: #f0f2f5;"></i>
+              <i class="text-white ">Log in</i>
               <% end %>
             </li>
             <% end %>
